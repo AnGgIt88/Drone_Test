@@ -3,7 +3,7 @@ name: ARM64 GCC+LLD Build
 on:
   push:
     branches: [ main ]
-workflow_dispatch:
+  workflow_dispatch:
 defaults:
   run:
     shell: bash
