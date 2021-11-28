@@ -2,8 +2,14 @@ name: ARM GCC+LLD Build
 
 on:
   push:
+    branches: [ main ]
   schedule:
     - cron: '0 0 * * 0,4'
+
+workflow_dispatch:
+defaults:
+  run:
+    shell: bash
 
 jobs:
   build:
@@ -20,7 +26,7 @@ jobs:
     - name: Set build date
       id: get-date
       run: |
-        sudo timedatectl set-timezone Asia/Kolkata
+        sudo timedatectl set-timezone Asia/Jakarta
         echo ::set-output name=date::$(/bin/date -u "+%Y%m%d")
     - name: Build & Push
       run: |
@@ -28,7 +34,7 @@ jobs:
         alias g++=g++-10
         git config --global user.name "${GITHUB_USER}"
         git config --global user.email "${GITHUB_EMAIL}"
-        git clone https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/mvaisakh/gcc-arm ../gcc-arm -b gcc-master
+        git clone https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/AnGgIt88/gcc-arm ../gcc-arm -b gcc-master
         rm -rf ../gcc-arm/*
         chmod a+x build-*.sh
         curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" -d chat_id="${CHAT_ID}" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="<b>Starting ARM (32-bit) GCC Build</b>"

@@ -1,6 +1,6 @@
 # GCC Cross Compiler Toolchain Build Script
 
-![ARM GCC Build](https://github.com/mvaisakh/gcc-build/workflows/ARM%20GCC%20Build/badge.svg) ![ARM64 GCC Build](https://github.com/mvaisakh/gcc-build/workflows/ARM64%20GCC%20Build/badge.svg) 
+![ARM GCC+LLD Build](https://github.com/AnGgIt88/Gcc-compiler/workflows/ARM%20GCC+LLD%20Build/badge.svg) ![ARM64 GCC+LLD Build](https://github.com/AnGgIt88/Gcc-compiler/workflows/ARM64%20GCC+LLD%20Build/badge.svg) 
 
 This repository contains the script needed to compile bare metal GCC for various architectures using Linux distributions. The GCC source is fetched from the master branch hence, contains all the bleeding edge changes.
 
@@ -49,9 +49,9 @@ git clone https://github.com/mvaisakh/gcc-build.git gcc-build
 ## Looking for precompiled toolchains?
 
 My GCC Cross Compiler builds are automated and pushed biweekly i.e. on Sundays & Thursdays at 00:00 GMT+5:30 (IST). They are pushed to:
-* **[ARM64](https://github.com/mvaisakh/gcc-arm64)**
-* **[ARM32](https://github.com/mvaisakh/gcc-arm)**
-* **[X86_64](https://github.com/mvaisakh/gcc-x86)** (Not built on cron anymore)
+* **[ARM64](https://github.com/AnGgIt88/gcc-arm64)**
+* **[ARM32](https://github.com/AnGgIt88/gcc-arm)**
+* **[X86_64](https://github.com/AnGgIt88/gcc-x86)** (Not built)
 
 ## Contributing to this repo
 
