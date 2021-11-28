@@ -1,6 +1,6 @@
 # GCC Cross Compiler Toolchain Build Script
 
-![ARM GCC+LLD Build](https://github.com/AnGgIt88/Gcc-compiler/workflows/ARM%20GCC+LLD%20Build/badge.svg) ![ARM64 GCC+LLD Build](https://github.com/AnGgIt88/Gcc-compiler/workflows/ARM64%20GCC+LLD%20Build/badge.svg) 
+![ARM GCC+LLD Build](https://github.com/AnGgIt88/Finix_gcc_compiller/workflows/ARM%20GCC+LLD%20Build/badge.svg) ![ARM64 GCC+LLD Build](https://github.com/AnGgIt88/Finix_gcc_compiller/workflows/ARM64%20GCC+LLD%20Build/badge.svg) 
 
 This repository contains the script needed to compile bare metal GCC for various architectures using Linux distributions. The GCC source is fetched from the master branch hence, contains all the bleeding edge changes.
 
