@@ -3,7 +3,7 @@ name : Finix Gcc Compiler
 version: rev1.5_template
 steps:
  - name: Building started..
-   image: ubuntu:20.04
+   image: ubuntu:21.04
    environment:
      GITHUB_EMAIL:
        from_secret: EMAIL
@@ -17,5 +17,5 @@ steps:
        from_secret: CHAT
      DRONE_USER_CREATE: AnGgIt88:octocat,admin:true
    commands:
-     - add-apt-repository ppa:ubuntu-toolchain-r/test -y
      - apt-get -y update && apt-get -y upgrade
+     - gcc --version
