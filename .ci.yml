@@ -3,7 +3,7 @@ name : Finix Gcc Compiler
 version: rev1.5_template
 steps:
  - name: Building started..
-   image: ubuntu:21.04
+   image: ubuntu:20.04
    environment:
      GITHUB_EMAIL:
        from_secret: EMAIL
