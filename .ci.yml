@@ -1,0 +1,21 @@
+kind: pipeline
+name : Finix Gcc Compiler
+version: rev1.5_template
+steps:
+ - name: Building started..
+   image: ubuntu:20.04
+   environment:
+     GITHUB_EMAIL:
+       from_secret: EMAIL
+     GITHUB_TOKEN:
+       from_secret: API_TOKEN_GITHUB
+     GITHUB_USER:
+       from_secret: USERNAME
+     BOT_TOKEN:
+       from_secret: TELEGRAM_BOT_TOKEN
+     CHAT_ID:
+       from_secret: CHAT
+     DRONE_USER_CREATE: AnGgIt88:octocat,admin:true
+   commands:
+     - add-apt-repository ppa:ubuntu-toolchain-r/test -y
+     - apt-get -y update && apt-get -y upgrade
