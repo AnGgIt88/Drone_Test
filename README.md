@@ -1,8 +1,19 @@
 # GCC Cross Compiler Toolchain Build Script
 
-![ARM GCC+LLD Build](https://github.com/AnGgIt88/Finix_gcc_compiller/workflows/ARM%20GCC+LLD%20Build/badge.svg) ![ARM64 GCC+LLD Build](https://github.com/AnGgIt88/Finix_gcc_compiller/workflows/ARM64%20GCC+LLD%20Build/badge.svg) 
+[![Build Status](https://cloud.drone.io/api/badges/AnGgIt88/Drone_Test/status.svg)](https://cloud.drone.io/AnGgIt88/Drone_Test)
 
 This repository contains the script needed to compile bare metal GCC for various architectures using Linux distributions. The GCC source is fetched from the master branch hence, contains all the bleeding edge changes.
+
+## Setup Build
+
+ **Add screet for your drone**
+* EMAIL | your email github
+* API_TOKEN_GITHUB | your github token
+* USERNAME | your github username
+* TELEGRAM_BOT_TOKEN | your telegram bot token
+* CHAT | your chat id group
+* GCC | name for your gcc
+* Add new repo gcc-arm & gcc-arm64 on branch gcc-master
 
 ## Before we start
 
