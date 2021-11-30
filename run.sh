@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 export WORK_DIR="$PWD"
-export GCC_VER="$(bin/aarch64-elf-gcc --version)"
-export LLD_VER="$(bin/aarch64-elf-ld.lld --version)"
 
 alias gcc=gcc-10
 alias g++=g++-10
@@ -25,5 +23,7 @@ git add . -f
 git commit -as -m "Release ARM64 GCC $(/bin/date)"  -m "Build completed on: $(/bin/date)" -m "Configuration: $(/bin/cat /tmp/gcc-version)" -m "LLD: $(/bin/cat /tmp/lld-arm64-version)"
 git gc
 git push origin gcc-master -f
+export GCC_VER="$bin/aarch64-elf-gcc --version"
+export LLD_VER="$bin/aarch64-elf-ld.lld --version"
 curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" -d chat_id="${CHAT_ID}" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="<b>$GCC_NAME GCC arm64: Toolchain compilation Finished</b>%0A<b>Gcc Version : </b><code>$GCC_VER</code>%0A<b>LLD Version : </b><code>$LLD_VER</code>"
 curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" -d chat_id="${CHAT_ID}" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="<b>$GCC_NAME GCC arm64: Toolchain pushed to : </b>https://github.com/"${GITHUB_USER}"/gcc-arm64"
