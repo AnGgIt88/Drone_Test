@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: GPL-3.0
-# Author: Vaisakh Murali
+# Author: Finix-Projects
 set -e
 
 echo "***************************"
