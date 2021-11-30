@@ -8,9 +8,9 @@ git clone https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/"${GITHUB_USER}"
 rm -rf ../gcc-arm/*
 chmod a+x build-*.sh
 curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" -d chat_id="${CHAT_ID}" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="<b>Starting ARM (32-bit) GCC Build</b>"
-./build-gcc.sh -a arm
+./build-gcc.sh -a arm arm64
 sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
-./build-lld.sh -a arm
+./build-lld.sh -a arm arm64
 cd ../gcc-arm
 ./bin/arm-eabi-gcc -v 2>&1 | tee /tmp/gcc-arm-version
 ./bin/arm-eabi-ld.lld -v 2>&1 | tee /tmp/lld-arm-version
