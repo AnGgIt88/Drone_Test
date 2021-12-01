@@ -57,9 +57,10 @@ function push() {
 	./bin/aarch64-elf-gcc -v 2>&1 | tee /tmp/gcc-version
 	./bin/aarch64-elf-ld.lld -v 2>&1 | tee /tmp/lld-arm64-version
 	bash "$WORK_DIR/strip-binaries.sh"
+	export short_binutils_commit="$(cut -c-8 <<< "$binutils_commit")"
+	export short_gcc_commit="$(cut -c-8 <<< "$gcc_commit")"
 	export binutils_commit_url="https://github.com/bminor/binutils-gdb/commit/$short_binutils_commit"
 	export gcc_commit_url="https://github.com/gcc-mirror/gcc/commit/$short_gcc_commit"
-	export llvm_commit_url="https://github.com/llvm/llvm-project/commit/$short_llvm_commit"
 	echo "# $GCC_NAME GCC ARM64" >> README.md
 	git add . -f
 	git commit -as -m "Release ARM64 GCC $(/bin/date)"  -m "Build completed on: $(/bin/date)" -m "Gcc commit: $gcc_commit_url" -m "Binutils commit: $binutils_commit_url" -m "Configuration: $(/bin/cat /tmp/gcc-version)" -m "LLD: $(/bin/cat /tmp/lld-arm64-version)"
@@ -69,6 +70,16 @@ function push() {
 	export LLD_VER="$(bin/aarch64-elf-ld.lld --version)"
 	tg_post_msg "<b>$GCC_NAME GCC arm64: Toolchain compilation Finished</b>%0A<b>Gcc Version : </b><code>$GCC_VER</code>%0A<b>LLD Version : </b><code>$LLD_VER</code>"
 	tg_post_msg "<b>$GCC_NAME GCC arm64: Toolchain pushed to : </b>https://github.com/"${GITHUB_USER}"/gcc-arm64"
+}
+
+# Commit detection
+binutils_commit() {
+	cd $WORK_DIR/binutils
+	git rev-parse HEAD
+}
+gcc_commit() {
+	cd $WORK_DIR/gcc
+	git rev-parse HEAD
 }
 configure
 repo

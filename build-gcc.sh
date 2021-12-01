@@ -32,12 +32,8 @@ download_resources() {
   echo "Downloading Pre-requisites"
   echo "Cloning binutils"
   git clone https://github.com/bminor/binutils-gdb -b master binutils --depth=1
-  binutils_commit="$(git rev-parse HEAD)"
-  short_binutils_commit="$(cut -c-8 <<< "$binutils_commit")"
   echo "Cloning GCC"
   git clone https://github.com/gcc-mirror/gcc -b master gcc --depth=1
-  gcc_commit="$(git rev-parse HEAD)"
-  short_gcc_commit="$(cut -c-8 <<< "$gcc_commit")"
   cd ${WORK_DIR}
   echo "Downloaded prerequisites!"
 }
