@@ -45,6 +45,8 @@ download_resources() {
   echo "> Downloading LLVM for LLD"
   echo ">"
   git clone https://github.com/llvm/llvm-project -b main llvm --depth=1
+  llvm_commit="$(git rev-parse HEAD)"
+  short_llvm_commit="$(cut -c-8 <<< "$llvm_commit")"
   cd ${WORK_DIR}
 }
 
